@@ -1,9 +1,6 @@
-
 import pandas as pd
 
-
 def generate_batches(df, n_batches=5):
-
     if len(df) < n_batches:
         raise ValueError(f"DataFrame too small ({len(df)} rows) for {n_batches} batches.")
     
@@ -17,7 +14,6 @@ def generate_batches(df, n_batches=5):
     
     print(f"Generated {n_batches} even batches: sizes {[len(b) for b in batches]}")
     return batches  # batch[0] = baseline, batch[1:] = incoming for drift
-
 
 # Example usage (for testing)
 if __name__ == "__main__":
