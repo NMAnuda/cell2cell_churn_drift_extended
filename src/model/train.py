@@ -1,9 +1,3 @@
-"""
-Model Training Script (Flexible for Baseline/Retrain with Versioning)
-- Trains XGBoost with SMOTE, dynamic weight, reduced tuning, threshold opt for F1.
-- Logs metadata (version, F1, params) to JSON.
-- Usage: python src/model/train.py (baseline default).
-"""
 
 import joblib
 import pandas as pd
@@ -52,7 +46,8 @@ def train_model(data_path, model_name='baseline'):
             **base_params,
             scale_pos_weight=scale_pos_weight,
             random_state=42,
-            eval_metric='logloss'
+            eval_metric='logloss',
+            
         )
 
         # Reduced param_grid for speed

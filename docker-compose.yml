@@ -4,20 +4,20 @@ services:
       context: .
       dockerfile: docker/Dockerfile_api
     ports:
-      - "8000:8000"
+      - "10000:8000"
     volumes:
       - .:/app
-      - mlflow_data:/app/mlruns  # Dedicated volume for MLflow
+       # Dedicated volume for MLflow
 
   dashboard:
     build:
       context: .
       dockerfile: docker/Dockerfile_dashboard
     ports:
-      - "8501:8501"
+      - "10001:8501"
     volumes:
       - .:/app
-      - mlflow_data:/app/mlruns  
+      
 
 
 volumes:

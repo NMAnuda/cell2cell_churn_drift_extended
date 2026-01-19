@@ -24,4 +24,4 @@ def send_slack_alert(webhook_url, message):
     import requests
     payload = {"text": f" {message}"}
     requests.post(webhook_url, json=payload)
-    print("✅ Drift alert sent via Slack!")
+    print(" Drift alert sent via Slack!")

@@ -9,6 +9,6 @@ if __name__ == "__main__":
     dashboard_path = os.path.join('src', 'dashboard', 'dashboard.py')
     subprocess.call([
         sys.executable, '-m', 'streamlit', 'run', dashboard_path,
-        '--server.port', '8501',
+        '--server.port', '10001',
         '--server.address', '0.0.0.0'
     ])

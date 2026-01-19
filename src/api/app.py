@@ -20,17 +20,19 @@ app.add_middleware(
 @app.post("/predict")
 def predict(request: PredictRequest):
     try:
+        print("sssssssssssssssssssss")
         # FIXED: Check model exists
         model_path = 'models/retrained_model.pkl'
         if not os.path.exists(model_path):
             raise HTTPException(status_code=404, detail="Model not found — run pipeline first")
-        
+        print("sssdssssssssssssssssss")
         # FIXED: Ensure all features (pad missing with 0)
         features = request.features
         full_features = {f: features.get(f, 0.0) for f in NUMERIC_FEATURES + CATEGORICAL_FEATURES}  # From config
         df = pd.DataFrame([full_features])
-        
+        print("ssssssasssssssssssssss")
         probs, preds = predict_churn(model_path, df)
+        
         return {"churn_prob": probs[0], "prediction": preds[0]}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Prediction error: {str(e)}")

@@ -9,7 +9,7 @@ def log_model_version(model, name, f1, auc, params):
         mlflow.log_metric("auc", auc)
         mlflow.log_params(params)
         mlflow.xgboost.log_model(model, "model")
-        print(f"✅ Model versioned: {name} (F1 {f1:.3f})")
+        print(f" Model versioned: {name} (F1 {f1:.3f})")
 
 if __name__ == "__main__":
     from src.model.train import train_model

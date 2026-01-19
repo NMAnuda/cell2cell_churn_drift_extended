@@ -6,7 +6,9 @@ def predict_churn(model_path, new_data_df, threshold=0.5):
     """Predict churn on new data."""
     model = joblib.load(model_path)
     X_new = new_data_df[NUMERIC_FEATURES + CATEGORICAL_FEATURES]
+    print("dddddddddddddd")
     probs = model.predict_proba(X_new)[:, 1]
+    print("fffffffffff")
     preds = (probs >= threshold).astype(int)
     return probs.tolist(), preds.tolist()
 
