@@ -15,7 +15,6 @@ def load_and_preprocess():
     df[TARGET] = df[TARGET].fillna(0).astype(int)
     print(f"Processed Churn distribution:\n{df[TARGET].value_counts(normalize=True)}")
     
-    # FIXED Numerics: Convert to numeric first (coerce strings to NaN), then fill median
     existing_numerics = [col for col in NUMERIC_FEATURES if col in df.columns]
     print(f"Using {len(existing_numerics)} numerics")
     for col in existing_numerics:

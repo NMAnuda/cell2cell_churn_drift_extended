@@ -42,7 +42,7 @@ def run_pipeline():
             # Call inner orchestrator for core steps
             f1_base, f1_re, delta_f1, has_drift, drift_psi_avg, threshold_base, threshold_re, auc_base, auc_re = run_core_pipeline()
 
-            # FIXED: Log all metrics dynamically from inner returns
+   
             mlflow.log_metric("baseline_f1", f1_base)
             mlflow.log_metric("baseline_auc", auc_base)
             mlflow.log_metric("drift_detected", int(has_drift))
@@ -55,14 +55,13 @@ def run_pipeline():
             mlflow.log_metric("improvement", delta_f1)
             logger.info("All metrics logged")
 
-            # FIXED: Log parameters dynamically from inner
+
             mlflow.log_param("baseline_threshold", threshold_base)
             mlflow.log_param("drift_threshold", PSI_THRESHOLD)
             mlflow.log_param("retrained_threshold", threshold_re)
             mlflow.log_param("retrained", True if has_drift else False)
             logger.info("All parameters logged")
 
-            # FIXED: Log models explicitly in outer (load & log after inner saves)
             from mlflow.xgboost import log_model
             baseline_model = joblib.load('models/baseline_model_improved.pkl')
             retrained_model = joblib.load('models/retrained_model.pkl')

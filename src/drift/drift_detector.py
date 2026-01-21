@@ -36,12 +36,12 @@ def detect_drift(baseline_df, current_df):
         
         psi = calculate_psi(baseline_df[feature], current_df[feature])
         ks_stat, p_value = ks_2samp(baseline_df[feature], current_df[feature])
-        
+        print("ethana hari")
         drifts[feature] = {
-            'psi': psi,
-            'ks_pvalue': p_value,
-            'drift_detected': (psi > PSI_THRESHOLD) or (p_value < KS_THRESHOLD)
-        }
+    'psi': float(psi),
+    'ks_pvalue': float(p_value),
+    'drift_detected': bool((psi > PSI_THRESHOLD) or (p_value < KS_THRESHOLD))
+}
         print(f"{feature}: PSI={psi:.3f}, KS p={p_value:.3f}, Drift={drifts[feature]['drift_detected']}")  # Debug (remove later)
     
     overall_drift = any(d['drift_detected'] for d in drifts.values())

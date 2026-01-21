@@ -85,8 +85,8 @@ def run_core_pipeline():
             recent_data.to_csv(recent_path, index=False)
             retrain_results = train_model(recent_path, "retrained")
             f1_re = retrain_results["f1"]
-            auc_re = retrain_results["auc"]  # FIXED: Capture AUC
-            threshold_re = retrain_results["threshold"]  # FIXED: Capture threshold
+            auc_re = retrain_results["auc"]  
+            threshold_re = retrain_results["threshold"]  
             model_re = retrain_results["model"]
             delta_f1 = f1_re - f1_base
 
@@ -98,7 +98,7 @@ def run_core_pipeline():
 
         logger.info("Inner orchestrator finished...")
 
-        # FIXED: Return thresholds/AUCs for dynamic logging
+
         return f1_base, f1_re, delta_f1, has_drift, drift_psi_avg, threshold_base, threshold_re, auc_base, auc_re
 
     except Exception as e:
