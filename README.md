@@ -4,7 +4,7 @@ A **production-style MLOps system** for customer churn prediction with automated
 
 ---
 
-##  Key Features
+## Key Features
 
 ### 1. End-to-End ML Pipeline
 - Data ingestion & preprocessing
