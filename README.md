@@ -63,7 +63,7 @@ This system follows a modular, production-style architecture:
 - **Monitoring Layer** → Streamlit dashboard
 - **Orchestration Layer** → Central pipeline controller
 
-![Architecture Diagram](./picture/image1.png)
+![](./pictrure/image1.png)
 
 ---
 
@@ -165,7 +165,7 @@ This system follows a modular, production-style architecture:
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 This project includes automated tests using Pytest:
 
@@ -176,7 +176,7 @@ This project includes automated tests using Pytest:
 
 ---
 
-## ⚙️ How to Run
+##  How to Run
 
 ### 1. Install dependencies
 ```
@@ -200,10 +200,10 @@ docker-compose up --build
 
 ---
 
-## 🛠 Technologies Used
+## Technologies Used
 Python | XGBoost | Scikit-learn | Pandas | NumPy | MLflow | FastAPI | Streamlit | Docker | Docker Compose | Matplotlib | Plotly | SciPy | Pytest | SQLite | (Future Enhancements AWS: EC2, S3, Lambda, Boto3)
 
-![Architecture Diagram](./picture/image3.png)
-![Architecture Diagram](./picture/image4.png)
-![Architecture Diagram](./picture/image5.png)
-![Architecture Diagram](./picture/image6.png)
+![](./pictrure/image3.png)
+![](./pictrure/image4.png)
+![](./pictrure/image5.png)
+![](./pictrure/image6.png)
