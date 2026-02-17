@@ -9,7 +9,7 @@ from src.data.preprocessing import load_and_preprocess
 from src.data.batch_generator import generate_batches
 from src.model.train import train_model
 from src.drift.drift_detector import detect_drift
-from src.config import USE_AWS, BATCHES_PATH, NUMERIC_FEATURES, CATEGORICAL_FEATURES, TARGET
+from src.config import USE_AWS, BATCHES_PATH, NUMERIC_FEATURES, CATEGORICAL_FEATURES, TARGET , SIMULATE_DRIFT
 
 # Conditional AWS imports
 if USE_AWS:
@@ -57,7 +57,8 @@ def run_core_pipeline():
         current_df = pd.read_csv(f"{BATCHES_PATH}/batch_2.csv")
 
         drifted_df = current_df.copy()
-        drifted_df["CustomerCareCalls"] += np.abs(drifted_df["CustomerCareCalls"]) * 0.15
+        if SIMULATE_DRIFT:
+            drifted_df["CustomerCareCalls"] += np.abs(drifted_df["CustomerCareCalls"]) * 0.15
 
         drifts, has_drift = detect_drift(baseline_df, drifted_df)
         drift_psi_avg = np.mean([d["psi"] for d in drifts.values()])
