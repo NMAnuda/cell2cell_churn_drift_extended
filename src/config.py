@@ -38,7 +38,7 @@ REGION = 'us-east-1'
 # AWS Toggle
 USE_AWS = False  # False for local, True for real AWS + .env
 N_BATCHES = 5 
-
+SIMULATE_DRIFT = False
 # MLflow - FIXED: Use environment variable or absolute path
 MLFLOW_DIR = os.path.join(BASE_DIR, "mlflow_data")
 os.makedirs(MLFLOW_DIR, exist_ok=True)
